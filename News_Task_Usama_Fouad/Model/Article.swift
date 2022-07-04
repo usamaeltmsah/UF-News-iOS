@@ -1,0 +1,23 @@
+//
+//  Article.swift
+//  News_Task_Usama_Fouad
+//
+//  Created by Usama Fouad on 04/07/2022.
+//
+
+import Foundation
+
+// MARK: - ArticleModel
+struct ArticleModel: Codable {
+    let status: String
+    let totalResults: Int?
+    let articles: [Article]?
+}
+
+// MARK: - Article
+struct Article: Codable {
+    let author: String?
+    let title, description: String?
+    let urlToImage: String?
+    let publishedAt: String?
+}
