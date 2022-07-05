@@ -29,13 +29,19 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    private var currentArticles: [Article]?
+    
     private var selectedCategoryInd = 0
     private var categories = [String]()
+    
+    private let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startAnimation()
+        configureSearchController()
+        configureActivityIndicatorView()
         loadNews(for: "all")
         loadNewsCategories()
         configureArticlesTV()
@@ -49,7 +55,7 @@ class HomeViewController: UIViewController {
         articlesTV.register(UINib(nibName: K.articleTVCellReuseId, bundle: nil), forCellReuseIdentifier: K.articleTVCellReuseId)
     }
     
-    private func startAnimation() {
+    private func configureActivityIndicatorView() {
         activityIndicatorView = NVActivityIndicatorView(frame: newsView.frame, type: .lineScalePulseOutRapid, color: .gray, padding: 0)
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         newsView.addSubview(activityIndicatorView)
@@ -60,14 +66,6 @@ class HomeViewController: UIViewController {
             activityIndicatorView.centerXAnchor.constraint(equalTo: newsView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: newsView.centerYAnchor)
         ])
-        activityIndicatorView.startAnimating()
-    }
-    
-    private func stopAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.activityIndicatorView.stopAnimating()
-            self?.activityIndicatorView.removeFromSuperview()
-        }
     }
     
     private func configureCategriesCV() {
@@ -77,21 +75,55 @@ class HomeViewController: UIViewController {
         categoriesCV.register(UINib(nibName: K.categoriesCVCellReuseId, bundle: nil), forCellWithReuseIdentifier: K.categoriesCVCellReuseId)
     }
     
+    private func configureSearchController() {
+        searchController.searchResultsUpdater = self
+//        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    private func filterCurresntArticles(searchQuery: String) {
+        if searchQuery.count > 0 {
+            currentArticles = articles ?? []
+            
+            let filteredResults = currentArticles?.filter {
+                guard let title = $0.title, let description = $0.description else { return false }
+                
+                return title
+                    .lowercased()
+                    .contains(searchQuery.lowercased()) ||
+                description
+                    .lowercased()
+                    .contains(searchQuery.lowercased())
+            }
+            
+            currentArticles = filteredResults
+            articlesTV.reloadData()
+        }
+    }
+    
+    private func restoreArticles() {
+        currentArticles = articles ?? []
+        articlesTV.reloadData()
+    }
+    
     private func loadNewsCategories() {
         categories = K.newsCategories
     }
     
     private func loadNews(for category: String) {
-        startAnimation()
-        ApiSrvice.sharedArticleProvider.request(.everything(q: category)) { [weak self] result in
+        activityIndicatorView.startAnimating()
+        ApiSrvice.sharedArticleProvider.request(.withQuery(q: category)) { [weak self] result in
             switch result {
             case .success(let response):
                 do {
                     let articlesData = try JSONDecoder().decode(ArticleModel.self, from: response.data)
                     
                     self?.articles = articlesData.articles
-                    
-                    self?.stopAnimation()
+                    self?.currentArticles = articlesData.articles
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                        self?.activityIndicatorView.stopAnimating()
+                    }
                 } catch {
                     print("Some ERROR happened while parsing api data!")
                 }
@@ -109,13 +141,13 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articles?.count ?? 0
+        return self.currentArticles?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = articlesTV.dequeueReusableCell(withIdentifier: K.articleTVCellReuseId, for: indexPath) as? ArticleTVCell else { return UITableViewCell() }
         
-        cell.configure(article: articles?[indexPath.row])
+        cell.configure(article: currentArticles?[indexPath.row])
             
         return cell
     }
@@ -136,6 +168,11 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if selectedCategoryInd == indexPath.row {
+            // Don't reload the data again!
+            return
+        }
+        
         selectedCategoryInd = indexPath.item
         loadNews(for: categories[indexPath.item])
         categoriesCV.reloadData()
@@ -158,4 +195,17 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     
+}
+
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        if searchText == "" {
+            self.restoreArticles()
+        } else {
+            self.filterCurresntArticles(searchQuery: searchText)
+        }
+    }
 }

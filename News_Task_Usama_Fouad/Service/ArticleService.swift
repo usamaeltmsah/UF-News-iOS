@@ -9,8 +9,12 @@ import Foundation
 import Moya
 
 enum ArticleService {
-    case everything(q: String)
+    case withQuery(q: String)
+    case inLanguage(language: String)
+//    case everything(page: Int=1)
+    case withPages(pageSize: Int)
     case topHeadlines(q: String)
+    case withCategory(categoery: String)
 }
 
 extension ArticleService: TargetType {
@@ -20,31 +24,36 @@ extension ArticleService: TargetType {
     
     var path: String {
         switch self {
-        case .everything(_):
+        case .withQuery(_), .inLanguage(_), .withPages(_):
             return "/everything"
-        case .topHeadlines(_):
+        case .topHeadlines(_), .withCategory(_):
             return "/top-headlines"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .everything(_), .topHeadlines(_):
+        default:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .everything(let q), .topHeadlines(let q):
+        case .withQuery(let q), .topHeadlines(let q):
             return .requestParameters(parameters: ["q": q], encoding: URLEncoding.default)
+        case .inLanguage(let language):
+            return .requestParameters(parameters: ["language": language], encoding: URLEncoding.default)
+        case .withPages(let pageSize):
+            return .requestParameters(parameters: ["pageSize": pageSize], encoding: URLEncoding.default)
+        case .withCategory(let categoery):
+            return .requestParameters(parameters: ["categoery": categoery], encoding: URLEncoding.default)
         }
     }
     
     var headers: [String : String]? {
-        let apiKey = "2a7bb0f32a634b7883e94b759d7696d9"
         return [
-            "x-api-key": apiKey,
+            "x-api-key": K.apiKey,
             "Content-type": "application/json"
         ]
     }

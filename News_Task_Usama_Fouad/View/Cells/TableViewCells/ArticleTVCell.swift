@@ -15,6 +15,7 @@ class ArticleTVCell: UITableViewCell {
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - Variables
     var activityIndicatorView: NVActivityIndicatorView!
@@ -23,7 +24,7 @@ class ArticleTVCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        startAnimation()
+        configureActivityIndicatorView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,8 +33,10 @@ class ArticleTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    private func startAnimation() {
-        activityIndicatorView = NVActivityIndicatorView(frame: articleImageView.frame, type: .ballClipRotateMultiple, color: .secondarySystemGroupedBackground, padding: 0)
+    private func configureActivityIndicatorView() {
+        activityIndicatorView = NVActivityIndicatorView(frame: articleImageView.frame, type: .ballClipRotateMultiple, color: .gray, padding: 0)
+        activityIndicatorView.backgroundColor = .cyan
+        activityIndicatorView.cornerRadius = 15
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         articleImageView.addSubview(activityIndicatorView)
         
@@ -43,17 +46,11 @@ class ArticleTVCell: UITableViewCell {
             activityIndicatorView.centerXAnchor.constraint(equalTo: articleImageView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: articleImageView.centerYAnchor)
         ])
-        activityIndicatorView.startAnimating()
-    }
-    
-    private func stopAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.activityIndicatorView.stopAnimating()
-            self?.activityIndicatorView.removeFromSuperview()
-        }
     }
     
     func configure(article: Article?) {
+        activityIndicatorView.startAnimating()
+        
         titleLabel.text = article?.title
         
         if let publishedAt = article?.publishedAt {
@@ -63,7 +60,7 @@ class ArticleTVCell: UITableViewCell {
             publishedAtLabel.isHidden = true
         }
         
-        if let author = article?.author {
+        if let author = article?.author, author.count > 0 {
             authorLabel.text = author
         } else {
 //            authorLabel.text = "Unkown author"
@@ -71,10 +68,12 @@ class ArticleTVCell: UITableViewCell {
         }
         
         if let imageUrl = article?.urlToImage {
-            articleImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
-            
-            stopAnimation()
+            articleImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder")) { [weak self] _, _, _, _ in
+                self?.activityIndicatorView.stopAnimating()
+            }
         }
+        
+        descriptionLabel.text = article?.description
     }
     
 }
