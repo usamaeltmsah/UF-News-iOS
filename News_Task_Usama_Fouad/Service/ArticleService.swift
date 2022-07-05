@@ -42,7 +42,7 @@ extension ArticleService: TargetType {
     }
     
     var headers: [String : String]? {
-        let apiKey = "71a91c64360d40508576adbd787c2556"
+        let apiKey = "2a7bb0f32a634b7883e94b759d7696d9"
         return [
             "x-api-key": apiKey,
             "Content-type": "application/json"

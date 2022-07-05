@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1904476428733AF00052BDF7 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1904476328733AF00052BDF7 /* ArticleService.swift */; };
 		1904476728733B1C0052BDF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1904476628733B1C0052BDF7 /* Constants.swift */; };
 		19044769287345F00052BDF7 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19044768287345EF0052BDF7 /* Article.swift */; };
+		191DA1872873C3AF0042FD28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191DA1862873C3AF0042FD28 /* UIView.swift */; };
 		19B897512872E43D0083D64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897502872E43D0083D64B /* AppDelegate.swift */; };
 		19B897532872E43D0083D64B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897522872E43D0083D64B /* SceneDelegate.swift */; };
 		19B897552872E43D0083D64B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897542872E43D0083D64B /* HomeViewController.swift */; };
@@ -18,6 +19,11 @@
 		19B8975D2872E4410083D64B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B8975B2872E4410083D64B /* LaunchScreen.storyboard */; };
 		19B897652872E5B30083D64B /* HeadLinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897642872E5B30083D64B /* HeadLinesViewController.swift */; };
 		19DB710028739D7A00847BBC /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB70FF28739D7A00847BBC /* ApiService.swift */; };
+		19DB71072873A39900847BBC /* ArticleTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB71052873A39900847BBC /* ArticleTVCell.swift */; };
+		19DB71082873A39900847BBC /* ArticleTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DB71062873A39900847BBC /* ArticleTVCell.xib */; };
+		19DB710B2873A3CB00847BBC /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DB71092873A3CB00847BBC /* CategoryCVCell.swift */; };
+		19DB710C2873A3CB00847BBC /* CategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DB710A2873A3CB00847BBC /* CategoryCVCell.xib */; };
+		19DB710E2873B0D900847BBC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19DB710D2873B0D900847BBC /* Colors.xcassets */; };
 		E9E0F1578E34BCB1C81055E2 /* Pods_News_Task_Usama_Fouad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAF641056EF44760E2B5E97 /* Pods_News_Task_Usama_Fouad.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +31,7 @@
 		1904476328733AF00052BDF7 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
 		1904476628733B1C0052BDF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		19044768287345EF0052BDF7 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		191DA1862873C3AF0042FD28 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		19B8974D2872E43D0083D64B /* News_Task_Usama_Fouad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News_Task_Usama_Fouad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B897502872E43D0083D64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B897522872E43D0083D64B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +42,11 @@
 		19B8975E2872E4410083D64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B897642872E5B30083D64B /* HeadLinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadLinesViewController.swift; sourceTree = "<group>"; };
 		19DB70FF28739D7A00847BBC /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		19DB71052873A39900847BBC /* ArticleTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTVCell.swift; sourceTree = "<group>"; };
+		19DB71062873A39900847BBC /* ArticleTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTVCell.xib; sourceTree = "<group>"; };
+		19DB71092873A3CB00847BBC /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
+		19DB710A2873A3CB00847BBC /* CategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCVCell.xib; sourceTree = "<group>"; };
+		19DB710D2873B0D900847BBC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5AAF641056EF44760E2B5E97 /* Pods_News_Task_Usama_Fouad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Task_Usama_Fouad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBD2986565594F1BC23F5A8 /* Pods-News_Task_Usama_Fouad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_Task_Usama_Fouad.release.xcconfig"; path = "Target Support Files/Pods-News_Task_Usama_Fouad/Pods-News_Task_Usama_Fouad.release.xcconfig"; sourceTree = "<group>"; };
 		CC4B73D40733B74F3AE4392E /* Pods-News_Task_Usama_Fouad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_Task_Usama_Fouad.debug.xcconfig"; path = "Target Support Files/Pods-News_Task_Usama_Fouad/Pods-News_Task_Usama_Fouad.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				19B897592872E4410083D64B /* Assets.xcassets */,
+				19DB710D2873B0D900847BBC /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -107,6 +120,8 @@
 		19044760287338090052BDF7 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				19DB71052873A39900847BBC /* ArticleTVCell.swift */,
+				19DB71062873A39900847BBC /* ArticleTVCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -114,6 +129,8 @@
 		19044761287338150052BDF7 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				19DB71092873A3CB00847BBC /* CategoryCVCell.swift */,
+				19DB710A2873A3CB00847BBC /* CategoryCVCell.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -133,6 +150,14 @@
 				1904476628733B1C0052BDF7 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		191DA1852873C3960042FD28 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				191DA1862873C3AF0042FD28 /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		19B897442872E43D0083D64B = {
@@ -156,6 +181,7 @@
 		19B8974F2872E43D0083D64B /* News_Task_Usama_Fouad */ = {
 			isa = PBXGroup;
 			children = (
+				191DA1852873C3960042FD28 /* Extensions */,
 				19B8975E2872E4410083D64B /* Info.plist */,
 				1904476528733B0D0052BDF7 /* Utilities */,
 				1904476228733A730052BDF7 /* Service */,
@@ -232,7 +258,7 @@
 				};
 			};
 			buildConfigurationList = 19B897482872E43D0083D64B /* Build configuration list for PBXProject "News_Task_Usama_Fouad" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -256,6 +282,9 @@
 			files = (
 				19B8975D2872E4410083D64B /* LaunchScreen.storyboard in Resources */,
 				19B8975A2872E4410083D64B /* Assets.xcassets in Resources */,
+				19DB71082873A39900847BBC /* ArticleTVCell.xib in Resources */,
+				19DB710E2873B0D900847BBC /* Colors.xcassets in Resources */,
+				19DB710C2873A3CB00847BBC /* CategoryCVCell.xib in Resources */,
 				19B897582872E43E0083D64B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +340,10 @@
 			files = (
 				19044769287345F00052BDF7 /* Article.swift in Sources */,
 				19B897652872E5B30083D64B /* HeadLinesViewController.swift in Sources */,
+				191DA1872873C3AF0042FD28 /* UIView.swift in Sources */,
+				19DB710B2873A3CB00847BBC /* CategoryCVCell.swift in Sources */,
 				1904476428733AF00052BDF7 /* ArticleService.swift in Sources */,
+				19DB71072873A39900847BBC /* ArticleTVCell.swift in Sources */,
 				19B897552872E43D0083D64B /* HomeViewController.swift in Sources */,
 				19B897512872E43D0083D64B /* AppDelegate.swift in Sources */,
 				19B897532872E43D0083D64B /* SceneDelegate.swift in Sources */,
@@ -392,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -462,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2DQV4CFN7G;
@@ -480,6 +513,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usamafouad.News-Task-Usama-Fouad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2DQV4CFN7G;
@@ -510,6 +545,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usamafouad.News-Task-Usama-Fouad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
