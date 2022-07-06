@@ -8,6 +8,7 @@
 import UIKit
 import Moya
 import NVActivityIndicatorView
+//import SafariServices
 
 class HeadLinesViewController: UIViewController {
     
@@ -64,6 +65,8 @@ class HeadLinesViewController: UIViewController {
     }
     
     private func showHeadlineDetailsVC(for index: Int) {
+//        let vc = SFSafariViewController(url: URL(string: (articles?[index].url)!)!)
+//        present(vc, animated: true)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = mainStoryboard.instantiateViewController(identifier: K.headlinesDetailsVCId) as? HeadlineDetailsViewController else { return }
         vc.urlString = articles?[index].url
@@ -83,11 +86,11 @@ class HeadLinesViewController: UIViewController {
     
     private func loadNews(for category: String) {
         activityIndicatorView.startAnimating()
-        ApiSrvice.sharedArticleProvider.request(.withCategory(category: category)) { [weak self] result in
+        ApiSrvice.sharedArticleProvider.request(.getHeadlinesWithCategory(category: category)) { [weak self] result in
             switch result {
             case .success(let response):
                 do {
-                    let articlesData = try JSONDecoder().decode(ArticleModel.self, from: response.data)
+                    let articlesData = try JSONDecoder().decode(NewsApiResponse.self, from: response.data)
                     
                     self?.topHeadlines = articlesData.articles
                     self?.articles = articlesData.articles

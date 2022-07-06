@@ -14,6 +14,7 @@
 		195F37E2287591E300AF49AA /* HeadlinesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */; };
 		195F37E3287591E300AF49AA /* HeadlinesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */; };
 		195F37E52875AB5900AF49AA /* HeadlineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F37E42875AB5900AF49AA /* HeadlineDetailsViewController.swift */; };
+		195F37EA2876452900AF49AA /* EverythingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F37E92876452900AF49AA /* EverythingNews.swift */; };
 		19B897512872E43D0083D64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897502872E43D0083D64B /* AppDelegate.swift */; };
 		19B897532872E43D0083D64B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897522872E43D0083D64B /* SceneDelegate.swift */; };
 		19B897552872E43D0083D64B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897542872E43D0083D64B /* HomeViewController.swift */; };
@@ -41,6 +42,7 @@
 		195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTVCell.swift; sourceTree = "<group>"; };
 		195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadlinesTVCell.xib; sourceTree = "<group>"; };
 		195F37E42875AB5900AF49AA /* HeadlineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineDetailsViewController.swift; sourceTree = "<group>"; };
+		195F37E92876452900AF49AA /* EverythingNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverythingNews.swift; sourceTree = "<group>"; };
 		19B8974D2872E43D0083D64B /* News_Task_Usama_Fouad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News_Task_Usama_Fouad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B897502872E43D0083D64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B897522872E43D0083D64B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				19044768287345EF0052BDF7 /* Article.swift */,
+				195F37E92876452900AF49AA /* EverythingNews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19044769287345F00052BDF7 /* Article.swift in Sources */,
+				195F37EA2876452900AF49AA /* EverythingNews.swift in Sources */,
 				19B897652872E5B30083D64B /* HeadLinesViewController.swift in Sources */,
 				19E2320C28750138007FE049 /* ArticleDetailsViewController.swift in Sources */,
 				195F37E2287591E300AF49AA /* HeadlinesTVCell.swift in Sources */,

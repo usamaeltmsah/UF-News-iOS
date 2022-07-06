@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 class HeadlinesTVCell: UITableViewCell {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var articleView: UIView!
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -21,6 +22,10 @@ class HeadlinesTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.selectionStyle = .none
+        
+        articleView.dropShadow(color: .black, offSet: .zero, radius: 2)
         
         configureActivityIndicatorView()
     }

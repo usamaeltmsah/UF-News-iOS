@@ -90,10 +90,17 @@
                                         <rect key="frame" x="0.0" y="10" width="390" height="653"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-ck-lOv">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="653"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="632"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTn-lE-JfP">
+                                                <rect key="frame" x="0.0" y="652" width="390" height="1"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="Yz3-TD-8Kz"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
@@ -119,6 +126,7 @@
                     <navigationItem key="navigationItem" title="News" id="8AA-Zq-ieG"/>
                     <connections>
                         <outlet property="articlesTV" destination="NQc-ck-lOv" id="3vW-8u-L28"/>
+                        <outlet property="loadingView" destination="OTn-lE-JfP" id="dy0-G2-l62"/>
                         <outlet property="newsView" destination="ZRv-Re-5QU" id="Jyy-qB-63d"/>
                     </connections>
                 </viewController>

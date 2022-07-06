@@ -126,6 +126,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="articleImageView" destination="Gl5-85-cWU" id="viQ-Tb-R3O"/>
+                <outlet property="articleView" destination="dbD-3K-r5g" id="b4f-lS-nfj"/>
                 <outlet property="authorLabel" destination="bIU-kx-ezx" id="SgA-p7-gyk"/>
                 <outlet property="descriptionLabel" destination="RX3-5Q-RQN" id="O1f-sq-PP4"/>
                 <outlet property="publishedAtLabel" destination="gxf-ZY-mgW" id="42q-G0-6Nn"/>

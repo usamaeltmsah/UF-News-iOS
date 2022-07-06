@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 
 class ArticleTVCell: UITableViewCell {
 
+    @IBOutlet weak var articleView: UIView!
     @IBOutlet weak var publishedAtLabel: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,6 +24,9 @@ class ArticleTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
+        
+        articleView.dropShadow(color: .black, offSet: .zero, radius: 2)
         
         configureActivityIndicatorView()
     }
