@@ -21,7 +21,7 @@ class HeadLinesViewController: UIViewController {
     // Variables
     var activityIndicatorView: NVActivityIndicatorView!
     
-    private var currentArticles: [Article]? {
+    private var articles: [Article]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.articlesTV.reloadData()
@@ -63,6 +63,13 @@ class HeadLinesViewController: UIViewController {
         ])
     }
     
+    private func showHeadlineDetailsVC(for index: Int) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = mainStoryboard.instantiateViewController(identifier: K.headlinesDetailsVCId) as? HeadlineDetailsViewController else { return }
+        vc.urlString = articles?[index].url
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func configureCategriesCV() {
         categoriesCV.delegate = self
         categoriesCV.dataSource = self
@@ -83,7 +90,7 @@ class HeadLinesViewController: UIViewController {
                     let articlesData = try JSONDecoder().decode(ArticleModel.self, from: response.data)
                     
                     self?.topHeadlines = articlesData.articles
-                    self?.currentArticles = articlesData.articles
+                    self?.articles = articlesData.articles
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
                         self?.activityIndicatorView.stopAnimating()
                     }
@@ -101,7 +108,7 @@ class HeadLinesViewController: UIViewController {
 
 extension HeadLinesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        showArticleDetailsVC(for: indexPath.row)
+        showHeadlineDetailsVC(for: indexPath.row)
         articlesTV.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -109,13 +116,13 @@ extension HeadLinesViewController: UITableViewDelegate {
 
 extension HeadLinesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentArticles?.count ?? 0
+        return self.articles?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = articlesTV.dequeueReusableCell(withIdentifier: K.headlinesTVCellReuseId, for: indexPath) as? HeadlinesTVCell else { return UITableViewCell() }
         
-        cell.configure(article: currentArticles?[indexPath.row])
+        cell.configure(article: articles?[indexPath.row])
             
         return cell
     }
@@ -144,7 +151,7 @@ extension HeadLinesViewController: UICollectionViewDataSource {
         if selectedCategoryInd > 0 {
             selectedCat = String(selectedCat.dropFirst(2))
         }
-        loadNews(for: selectedCat)
+        loadNews(for: selectedCat.lowercased())
         categoriesCV.reloadData()
     }
     

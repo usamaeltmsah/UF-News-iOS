@@ -10,7 +10,7 @@ import UIKit
 
 
 struct K {
-    static let apiKey = "2a7bb0f32a634b7883e94b759d7696d9"
+    static let apiKey = "71a91c64360d40508576adbd787c2556"
     
     
     static let articlesTVCellReuseId = "ArticleTVCell"
@@ -20,6 +20,7 @@ struct K {
     static let articleDetailsVCId = "ArticleDetailsViewController"
     
     static let headlinesTVCellReuseId = "HeadlinesTVCell"
+    static let headlinesDetailsVCId = "HeadlineDetailsViewController"
     
     struct Colors {
         static let defaultCategoryBackgound = UIColor(named: "Category Background Color")
@@ -28,5 +29,5 @@ struct K {
         static let selectedCategoryLabel = UIColor.white
     }
     
-    static let newsCategories = ["General", "🎮 Entertainment", "💻 Technology", "📚 Science", "⛑ Health", "🏓 Sports", "👷‍♂️ Business"]    
+    static let newsCategories = ["General", "🎮 Entertainment", "💻 Technology", "📚 Science", "⛑ Health", "🏓 Sports", "👷‍♂️ Business"]
 }

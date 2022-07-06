@@ -13,6 +13,7 @@
 		191DA1872873C3AF0042FD28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191DA1862873C3AF0042FD28 /* UIView.swift */; };
 		195F37E2287591E300AF49AA /* HeadlinesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */; };
 		195F37E3287591E300AF49AA /* HeadlinesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */; };
+		195F37E52875AB5900AF49AA /* HeadlineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F37E42875AB5900AF49AA /* HeadlineDetailsViewController.swift */; };
 		19B897512872E43D0083D64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897502872E43D0083D64B /* AppDelegate.swift */; };
 		19B897532872E43D0083D64B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897522872E43D0083D64B /* SceneDelegate.swift */; };
 		19B897552872E43D0083D64B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B897542872E43D0083D64B /* HomeViewController.swift */; };
@@ -39,6 +40,7 @@
 		191DA1862873C3AF0042FD28 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTVCell.swift; sourceTree = "<group>"; };
 		195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadlinesTVCell.xib; sourceTree = "<group>"; };
+		195F37E42875AB5900AF49AA /* HeadlineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineDetailsViewController.swift; sourceTree = "<group>"; };
 		19B8974D2872E43D0083D64B /* News_Task_Usama_Fouad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News_Task_Usama_Fouad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B897502872E43D0083D64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B897522872E43D0083D64B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				19B897542872E43D0083D64B /* HomeViewController.swift */,
 				19B897642872E5B30083D64B /* HeadLinesViewController.swift */,
 				19E2320B28750138007FE049 /* ArticleDetailsViewController.swift */,
+				195F37E42875AB5900AF49AA /* HeadlineDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				1904476428733AF00052BDF7 /* ArticleService.swift in Sources */,
 				19DB71072873A39900847BBC /* ArticleTVCell.swift in Sources */,
 				19B897552872E43D0083D64B /* HomeViewController.swift in Sources */,
+				195F37E52875AB5900AF49AA /* HeadlineDetailsViewController.swift in Sources */,
 				19B897512872E43D0083D64B /* AppDelegate.swift in Sources */,
 				19B897532872E43D0083D64B /* SceneDelegate.swift in Sources */,
 				19DB710028739D7A00847BBC /* ApiService.swift in Sources */,
