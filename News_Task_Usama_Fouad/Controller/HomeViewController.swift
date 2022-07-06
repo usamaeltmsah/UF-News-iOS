@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         articlesTV.delegate = self
         articlesTV.dataSource = self
         
-        articlesTV.register(UINib(nibName: K.articleTVCellReuseId, bundle: nil), forCellReuseIdentifier: K.articleTVCellReuseId)
+        articlesTV.register(UINib(nibName: K.articlesTVCellReuseId, bundle: nil), forCellReuseIdentifier: K.articlesTVCellReuseId)
     }
     
     private func configureActivityIndicatorView() {
@@ -132,10 +132,20 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    private func showArticleDetailsVC(for index: Int) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = mainStoryboard.instantiateViewController(identifier: K.articleDetailsVCId) as? ArticleDetailsViewController else { return }
+        vc.article = articles?[index]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showArticleDetailsVC(for: indexPath.row)
+        articlesTV.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 
@@ -145,7 +155,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = articlesTV.dequeueReusableCell(withIdentifier: K.articleTVCellReuseId, for: indexPath) as? ArticleTVCell else { return UITableViewCell() }
+        guard let cell = articlesTV.dequeueReusableCell(withIdentifier: K.articlesTVCellReuseId, for: indexPath) as? ArticleTVCell else { return UITableViewCell() }
         
         cell.configure(article: currentArticles?[indexPath.row])
             

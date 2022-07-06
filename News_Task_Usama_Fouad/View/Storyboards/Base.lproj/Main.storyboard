@@ -57,6 +57,7 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-ck-lOv">
                                                 <rect key="frame" x="0.0" y="70" width="390" height="583"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,6 +91,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaz-GN-KNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1383.0769230769231" y="-702.36966824644549"/>
+        </scene>
+        <!--Article Details View Controller-->
+        <scene sceneID="V6W-d4-bNd">
+            <objects>
+                <viewController storyboardIdentifier="ArticleDetailsViewController" id="sTb-CI-HlK" customClass="ArticleDetailsViewController" customModule="News_Task_Usama_Fouad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4L-B0-tkj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLq-vI-G30">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-Cx-v9t">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="766"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="x5H-Cx-v9t" secondAttribute="trailing" id="3yD-ib-Zhq"/>
+                                    <constraint firstItem="x5H-Cx-v9t" firstAttribute="leading" secondItem="vLq-vI-G30" secondAttribute="leading" id="ZZk-P3-e4W"/>
+                                    <constraint firstAttribute="bottom" secondItem="x5H-Cx-v9t" secondAttribute="bottom" id="eIb-PT-ZCo"/>
+                                    <constraint firstItem="x5H-Cx-v9t" firstAttribute="top" secondItem="vLq-vI-G30" secondAttribute="top" id="pHG-QU-ndI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kzC-mW-cb9"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vLq-vI-G30" firstAttribute="leading" secondItem="kzC-mW-cb9" secondAttribute="leading" id="lfm-Jq-5O7"/>
+                            <constraint firstItem="kzC-mW-cb9" firstAttribute="trailing" secondItem="vLq-vI-G30" secondAttribute="trailing" id="n7G-mz-Yaa"/>
+                            <constraint firstItem="vLq-vI-G30" firstAttribute="top" secondItem="kzC-mW-cb9" secondAttribute="top" id="r4s-gi-1Mb"/>
+                            <constraint firstItem="kzC-mW-cb9" firstAttribute="bottom" secondItem="vLq-vI-G30" secondAttribute="bottom" id="tXx-pS-Wse"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articleDetailsTV" destination="x5H-Cx-v9t" id="F1P-PK-Hwc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="514-vJ-Fnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2479" y="-709"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xjE-Zd-HO2">

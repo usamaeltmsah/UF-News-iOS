@@ -60,12 +60,7 @@ class ArticleTVCell: UITableViewCell {
             publishedAtLabel.isHidden = true
         }
         
-        if let author = article?.author, author.count > 0 {
-            authorLabel.text = author
-        } else {
-//            authorLabel.text = "Unkown author"
-            authorLabel.isHidden = true
-        }
+        authorLabel.text = article?.author
         
         if let imageUrl = article?.urlToImage {
             articleImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder")) { [weak self] _, _, _, _ in

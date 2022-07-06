@@ -13,8 +13,11 @@ struct K {
     static let apiKey = "2a7bb0f32a634b7883e94b759d7696d9"
     
     
-    static let articleTVCellReuseId = "ArticleTVCell"
+    static let articlesTVCellReuseId = "ArticleTVCell"
     static let categoriesCVCellReuseId = "CategoryCVCell"
+    
+    static let articleDetailTVCellReuseId = "ArticleDetailsTVCell"
+    static let articleDetailsVCId = "ArticleDetailsViewController"
     
     struct Colors {
         static let defaultCategoryBackgound = UIColor(named: "Category Background Color")

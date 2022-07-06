@@ -131,7 +131,7 @@
                 <outlet property="publishedAtLabel" destination="gxf-ZY-mgW" id="42q-G0-6Nn"/>
                 <outlet property="titleLabel" destination="OB7-NG-NgZ" id="Oxa-Aw-gCi"/>
             </connections>
-            <point key="canvasLocation" x="55.38461538461538" y="22.037914691943126"/>
+            <point key="canvasLocation" x="55.38461538461538" y="21.682464454976301"/>
         </tableViewCell>
     </objects>
     <resources>
