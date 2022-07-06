@@ -1,28 +1,26 @@
 //
-//  ArticleTVCell.swift
+//  HeadlinesTVCell.swift
 //  News_Task_Usama_Fouad
 //
-//  Created by Usama Fouad on 05/07/2022.
+//  Created by Usama Fouad on 06/07/2022.
 //
 
 import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
-class ArticleTVCell: UITableViewCell {
+class HeadlinesTVCell: UITableViewCell {
 
-    @IBOutlet weak var publishedAtLabel: UILabel!
+    // MARK: - IBOutlets
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - Variables
     var activityIndicatorView: NVActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         configureActivityIndicatorView()
     }
@@ -53,13 +51,6 @@ class ArticleTVCell: UITableViewCell {
         
         titleLabel.text = article?.title
         
-        if let publishedAt = article?.publishedAt {
-            publishedAtLabel.text = "Published at \(publishedAt)"
-        } else {
-//            publishedAtLabel.text = "Unkown puplish date"
-            publishedAtLabel.isHidden = true
-        }
-        
         authorLabel.text = article?.author
         
         if let imageUrl = article?.urlToImage {
@@ -67,8 +58,5 @@ class ArticleTVCell: UITableViewCell {
                 self?.activityIndicatorView.stopAnimating()
             }
         }
-        
-        descriptionLabel.text = article?.description
     }
-    
 }

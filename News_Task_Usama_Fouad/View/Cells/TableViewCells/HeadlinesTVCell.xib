@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeadlinesTVCell" rowHeight="431" id="KGk-i7-Jjw" customClass="HeadlinesTVCell" customModule="News_Task_Usama_Fouad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="623" height="431"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="623" height="431"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47n-Qq-FEf">
+                        <rect key="frame" x="5" y="10" width="613" height="380.66666666666669"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4cp-Mc-wDa">
+                                <rect key="frame" x="10" y="5" width="593" height="370.66666666666669"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpC-i1-VlQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="593" height="370.66666666666669"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPw-Ff-N3a">
+                                                <rect key="frame" x="0.0" y="0.0" width="593" height="370.66666666666669"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVM-ON-dKM">
+                                                <rect key="frame" x="0.0" y="0.0" width="593" height="370.66666666666669"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="xGE-1k-mpy">
+                                                <rect key="frame" x="5" y="280" width="583" height="80.666666666666686"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York passes a bill to limit bitcoin mining New York passes a bill to limit bitcoin mining " lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEB-Ap-fxT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="583" height="40.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kris Holt" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YY-uH-tY6">
+                                                        <rect key="frame" x="0.0" y="65.666666666666686" width="583" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="zNL-Ex-Y9m"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="xGE-1k-mpy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YpC-i1-VlQ" secondAttribute="top" constant="30" id="3NE-3A-Wwy"/>
+                                            <constraint firstAttribute="trailing" secondItem="xGE-1k-mpy" secondAttribute="trailing" constant="5" id="3z0-GH-bnn"/>
+                                            <constraint firstItem="ZVM-ON-dKM" firstAttribute="top" secondItem="YpC-i1-VlQ" secondAttribute="top" id="Knr-mh-pZF"/>
+                                            <constraint firstItem="xGE-1k-mpy" firstAttribute="leading" secondItem="YpC-i1-VlQ" secondAttribute="leading" constant="5" id="OHn-kl-sOU"/>
+                                            <constraint firstAttribute="bottom" secondItem="xGE-1k-mpy" secondAttribute="bottom" constant="10" id="c8E-Wl-OHt"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZVM-ON-dKM" secondAttribute="trailing" id="cr0-aQ-7FK"/>
+                                            <constraint firstItem="ZVM-ON-dKM" firstAttribute="leading" secondItem="YpC-i1-VlQ" secondAttribute="leading" id="gjw-jB-Xlz"/>
+                                            <constraint firstAttribute="width" secondItem="YpC-i1-VlQ" secondAttribute="height" multiplier="8:5" id="i8L-vt-16f"/>
+                                            <constraint firstAttribute="trailing" secondItem="HPw-Ff-N3a" secondAttribute="trailing" id="lb2-4P-UFc"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZVM-ON-dKM" secondAttribute="bottom" id="mdf-8Q-T9h"/>
+                                            <constraint firstItem="HPw-Ff-N3a" firstAttribute="leading" secondItem="YpC-i1-VlQ" secondAttribute="leading" id="r7P-qX-apX"/>
+                                            <constraint firstAttribute="bottom" secondItem="HPw-Ff-N3a" secondAttribute="bottom" id="zXi-Jv-rDO"/>
+                                            <constraint firstItem="HPw-Ff-N3a" firstAttribute="top" secondItem="YpC-i1-VlQ" secondAttribute="top" id="zrD-n7-2XR"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="YpC-i1-VlQ" firstAttribute="width" secondItem="4cp-Mc-wDa" secondAttribute="width" id="0bk-fI-7wB"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4cp-Mc-wDa" firstAttribute="leading" secondItem="47n-Qq-FEf" secondAttribute="leading" constant="10" id="GVs-Im-8uw"/>
+                            <constraint firstItem="4cp-Mc-wDa" firstAttribute="top" secondItem="47n-Qq-FEf" secondAttribute="top" constant="5" id="akC-qC-zHq"/>
+                            <constraint firstAttribute="trailing" secondItem="4cp-Mc-wDa" secondAttribute="trailing" constant="10" id="wvh-VN-kdK"/>
+                            <constraint firstAttribute="bottom" secondItem="4cp-Mc-wDa" secondAttribute="bottom" constant="5" id="zpo-sE-fKj"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="47n-Qq-FEf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="e8l-Zk-sHD"/>
+                    <constraint firstAttribute="trailing" secondItem="47n-Qq-FEf" secondAttribute="trailing" constant="5" id="vsK-ZY-e6Z"/>
+                    <constraint firstAttribute="bottom" secondItem="47n-Qq-FEf" secondAttribute="bottom" id="yuj-cx-cny"/>
+                    <constraint firstItem="47n-Qq-FEf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zOU-hs-ozo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="articleImageView" destination="HPw-Ff-N3a" id="5EP-rt-Pbq"/>
+                <outlet property="authorLabel" destination="9YY-uH-tY6" id="wUu-vx-rnp"/>
+                <outlet property="titleLabel" destination="uEB-Ap-fxT" id="aEj-Uc-VPd"/>
+            </connections>
+            <point key="canvasLocation" x="465" y="-5"/>
+        </tableViewCell>
+    </objects>
+</document>

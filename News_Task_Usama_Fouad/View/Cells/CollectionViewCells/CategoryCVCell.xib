@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfy-gX-gOY">
-                        <rect key="frame" x="10" y="0.0" width="126" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="116" height="44"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXQ-PQ-Qh2">
-                                <rect key="frame" x="23" y="12" width="80" height="20"/>
+                                <rect key="frame" x="23" y="12" width="70" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Category Label Color"/>
                                 <color key="highlightedColor" name="categoryLabelColor"/>
@@ -51,7 +51,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="8Be-Yf-Npm"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mfy-gX-gOY" secondAttribute="trailing" id="Lxq-tp-LSx"/>
+                <constraint firstAttribute="trailing" secondItem="Mfy-gX-gOY" secondAttribute="trailing" constant="10" id="Lxq-tp-LSx"/>
                 <constraint firstItem="Mfy-gX-gOY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a3F-m3-Q3r"/>
                 <constraint firstAttribute="bottom" secondItem="Mfy-gX-gOY" secondAttribute="bottom" id="cB6-BI-Rd0"/>
                 <constraint firstItem="Mfy-gX-gOY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="fGh-NT-ocD"/>

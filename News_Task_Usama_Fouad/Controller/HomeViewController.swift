@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
 
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var categoriesCV: UICollectionView!
     @IBOutlet weak var articlesTV: UITableView!
     
     @IBOutlet weak var newsView: UIView!
@@ -32,9 +31,6 @@ class HomeViewController: UIViewController {
     
     private var currentArticles: [Article]?
     
-    private var selectedCategoryInd = 0
-    private var categories = [String]()
-    
     private let searchController = UISearchController()
     
     override func viewDidLoad() {
@@ -43,9 +39,7 @@ class HomeViewController: UIViewController {
         configureSearchController()
         configureActivityIndicatorView()
         loadNews(for: "all")
-        loadNewsCategories()
         configureArticlesTV()
-        configureCategriesCV()
     }
     
     private func configureArticlesTV() {
@@ -68,18 +62,12 @@ class HomeViewController: UIViewController {
         ])
     }
     
-    private func configureCategriesCV() {
-        categoriesCV.delegate = self
-        categoriesCV.dataSource = self
-        
-        categoriesCV.register(UINib(nibName: K.categoriesCVCellReuseId, bundle: nil), forCellWithReuseIdentifier: K.categoriesCVCellReuseId)
-    }
-    
     private func configureSearchController() {
         searchController.searchResultsUpdater = self
 //        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+//        searchController.obscuresBackgroundDuringPresentation = false
     }
     
     private func filterCurresntArticles(searchQuery: String) {
@@ -105,10 +93,6 @@ class HomeViewController: UIViewController {
     private func restoreArticles() {
         currentArticles = articles ?? []
         articlesTV.reloadData()
-    }
-    
-    private func loadNewsCategories() {
-        categories = K.newsCategories
     }
     
     private func loadNews(for category: String) {
@@ -171,42 +155,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 //        return CGSize(width: collectionView.contentSize.width, height: 30.0)
 //    }
 }
-
-extension HomeViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if selectedCategoryInd == indexPath.row {
-            // Don't reload the data again!
-            return
-        }
-        
-        selectedCategoryInd = indexPath.item
-        loadNews(for: categories[indexPath.item])
-        categoriesCV.reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = categoriesCV.dequeueReusableCell(withReuseIdentifier: K.categoriesCVCellReuseId, for: indexPath) as? CategoryCVCell else { return UICollectionViewCell() }
-        
-        cell.categoryLabel.text = categories[indexPath.item]
-        
-        if selectedCategoryInd == indexPath.item {
-            cell.categoryView.backgroundColor = K.Colors.selectedCategoryBackgound
-            cell.categoryLabel.textColor = K.Colors.selectedCategoryLabel
-        } else {
-            cell.categoryView.backgroundColor = K.Colors.defaultCategoryBackgound
-            cell.categoryLabel.textColor =  K.Colors.defaultCategoryLabel
-        }
-            
-        return cell
-    }
-    
-    
-}
-
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
