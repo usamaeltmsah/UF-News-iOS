@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - ArticleModel
-struct ArticleModel: Codable {
+struct NewsApiResponse: Codable {
     let status: String
     let totalResults: Int?
     let articles: [Article]?
