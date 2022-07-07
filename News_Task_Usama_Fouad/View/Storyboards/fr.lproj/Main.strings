@@ -1,0 +1,12 @@
+
+/* Class = "UINavigationItem"; title = "News"; ObjectID = "8AA-Zq-ieG"; */
+"8AA-Zq-ieG.title" = "Nouvelles";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "EF5-wh-1uV"; */
+"EF5-wh-1uV.title" = "Nouvelles";
+
+/* Class = "UITabBarItem"; title = "HeadLines"; ObjectID = "cpD-W6-IEx"; */
+"cpD-W6-IEx.title" = "Titres";
+
+/* Class = "UINavigationItem"; title = "Headlines"; ObjectID = "wjB-Aj-nb9"; */
+"wjB-Aj-nb9.title" = "Titres";

@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  News_Task_Usama_Fouad
+
+  Created by Usama Fouad on 07/07/2022.
+  
+*/
+
+"news_cat_general" = "عام";
+"news_cat_entertainment" = "التسلية 🎮";
+"news_cat_technology" = "التكنولوجيا 💻";
+"news_cat_science" = "العلوم 📚";
+"news_cat_health" = "الصحة ⛑";
+"news_cat_sports" = "الرياضة 🏓";
+"news_cat_business" = "الأعمال 👷‍♂️";
