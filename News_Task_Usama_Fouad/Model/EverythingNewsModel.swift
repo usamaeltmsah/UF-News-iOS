@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EverythingNews {
+struct EverythingNewsModel {
     var q: String = ""
     var domains:String = ""
     var languages: String = ""

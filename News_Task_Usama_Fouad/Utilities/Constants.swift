@@ -10,8 +10,10 @@ import UIKit
 
 
 struct K {
-    static let apiKey = "71a91c64360d40508576adbd787c2556"
+    static let apiKey = "2a7bb0f32a634b7883e94b759d7696d9"
     
+    static var deviceLanguage: String?
+    static var localRegionCode: String?
     
     static let articlesTVCellReuseId = "ArticleTVCell"
     static let categoriesCVCellReuseId = "CategoryCVCell"
@@ -29,5 +31,6 @@ struct K {
         static let selectedCategoryLabel = UIColor.white
     }
     
-    static let newsCategories = ["General", "🎮 Entertainment", "💻 Technology", "📚 Science", "⛑ Health", "🏓 Sports", "👷‍♂️ Business"]
+    static let newsCategoriesLocalKeys: [String.LocalizationValue] = ["news_cat_general", "news_cat_entertainment", "news_cat_technology", "news_cat_science", "news_cat_health", "news_cat_sports", "news_cat_business"]
+    static var newsCategories = ["General", "🎮 Entertainment", "💻 Technology", "📚 Science", "⛑ Health", "🏓 Sports", "👷‍♂️ Business"]
 }

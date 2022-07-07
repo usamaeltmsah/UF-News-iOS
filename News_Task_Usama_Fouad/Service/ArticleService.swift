@@ -9,9 +9,10 @@ import Foundation
 import Moya
 
 enum ArticleService {
-    case getEverythinNews(paramsModel: EverythingNews)
-    case getHeadlinesWithQuery(q: String)
-    case getHeadlinesWithCategory(category: String)
+    case getEverythinNews(paramsModel: EverythingNewsModel)
+//    case getHeadlinesWithQuery(q: String)
+//    case getHeadlinesWithCategory(category: String)
+    case getHeadlines(paramsModel: HeadlinesModel)
 }
 
 extension ArticleService: TargetType {
@@ -23,7 +24,8 @@ extension ArticleService: TargetType {
         switch self {
         case .getEverythinNews(_):
             return "/everything"
-        case .getHeadlinesWithQuery(_), .getHeadlinesWithCategory(_):
+//        case .getHeadlinesWithQuery(_), .getHeadlinesWithCategory(_):
+        case .getHeadlines(_):
             return "/top-headlines"
         }
     }
@@ -41,10 +43,13 @@ extension ArticleService: TargetType {
         case .getEverythinNews(let paramsModel):
             let parameters = paramsModel.getParams()
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-        case .getHeadlinesWithQuery(let q):
-            return .requestParameters(parameters: ["q": q], encoding: URLEncoding.default)
-        case .getHeadlinesWithCategory(let category):
-            return .requestParameters(parameters: ["category": category], encoding: URLEncoding.default)
+        case .getHeadlines(let paramsModel):
+            let parameters = paramsModel.getParams()
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+//        case .getHeadlinesWithQuery(let q):
+//            return .requestParameters(parameters: ["q": q], encoding: URLEncoding.default)
+//        case .getHeadlinesWithCategory(let category):
+//            return .requestParameters(parameters: ["category": category], encoding: URLEncoding.default)
         }
     }
     

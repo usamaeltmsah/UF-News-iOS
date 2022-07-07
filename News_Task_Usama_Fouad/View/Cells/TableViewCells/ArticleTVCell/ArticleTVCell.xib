@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbD-3K-r5g">
-                        <rect key="frame" x="5" y="10" width="274" height="247"/>
+                        <rect key="frame" x="5" y="10" width="274" height="242"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="egv-aD-lCU">
-                                <rect key="frame" x="10" y="10" width="254" height="227"/>
+                                <rect key="frame" x="10" y="10" width="254" height="222"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0m1-g0-NaR">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="158.66666666666666"/>
@@ -89,7 +89,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parceria do Nubank com a Shopee libera até R$ 50 de cashback por compra" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX3-5Q-RQN">
-                                        <rect key="frame" x="0.0" y="173.66666666666666" width="254" height="53.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="173.66666666666666" width="254" height="48.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -117,7 +117,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="dbD-3K-r5g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IGa-Hr-MzR"/>
-                    <constraint firstAttribute="bottom" secondItem="dbD-3K-r5g" secondAttribute="bottom" id="KHf-bc-6lR"/>
+                    <constraint firstAttribute="bottom" secondItem="dbD-3K-r5g" secondAttribute="bottom" constant="5" id="KHf-bc-6lR"/>
                     <constraint firstAttribute="trailing" secondItem="dbD-3K-r5g" secondAttribute="trailing" constant="5" id="jfM-Yd-CAs"/>
                     <constraint firstItem="dbD-3K-r5g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="pUy-Aa-35I"/>
                 </constraints>

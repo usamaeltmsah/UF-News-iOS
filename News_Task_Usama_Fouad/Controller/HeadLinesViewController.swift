@@ -21,6 +21,7 @@ class HeadLinesViewController: UIViewController {
     
     // Variables
     var activityIndicatorView: NVActivityIndicatorView!
+    var headlinesModel = HeadlinesModel()
     
     private var articles: [Article]? {
         didSet {
@@ -38,10 +39,18 @@ class HeadLinesViewController: UIViewController {
         super.viewDidLoad()
 
         configureActivityIndicatorView()
-        loadNews(for: "general")
+        configureHeadlinesModel()
+        loadNews()
         loadNewsCategories()
         configureArticlesTV()
         configureCategriesCV()
+    }
+    
+    func configureHeadlinesModel() {
+        headlinesModel.category = K.newsCategories.first!
+        headlinesModel.country = K.localRegionCode ?? "eg"
+        headlinesModel.pageSize = 20
+        headlinesModel.page = 1
     }
     
     private func configureArticlesTV() {
@@ -82,11 +91,15 @@ class HeadLinesViewController: UIViewController {
     
     private func loadNewsCategories() {
         categories = K.newsCategories
+        
+        if K.deviceLanguage == "ar" {
+            categoriesCV.semanticContentAttribute = .forceLeftToRight
+        }
     }
     
-    private func loadNews(for category: String) {
+    private func loadNews() {
         activityIndicatorView.startAnimating()
-        ApiSrvice.sharedArticleProvider.request(.getHeadlinesWithCategory(category: category)) { [weak self] result in
+        ApiSrvice.sharedArticleProvider.request(.getHeadlines(paramsModel: headlinesModel)) { [weak self] result in
             switch result {
             case .success(let response):
                 do {
@@ -154,7 +167,8 @@ extension HeadLinesViewController: UICollectionViewDataSource {
         if selectedCategoryInd > 0 {
             selectedCat = String(selectedCat.dropFirst(2))
         }
-        loadNews(for: selectedCat.lowercased())
+        headlinesModel.category = selectedCat.lowercased()
+        loadNews()
         categoriesCV.reloadData()
     }
     
@@ -162,7 +176,7 @@ extension HeadLinesViewController: UICollectionViewDataSource {
         guard let cell = categoriesCV.dequeueReusableCell(withReuseIdentifier: K.categoriesCVCellReuseId, for: indexPath) as? CategoryCVCell else { return UICollectionViewCell() }
         
         cell.categoryLabel.text = categories[indexPath.item]
-        
+        cell.categoryLabel.text = String(localized: K.newsCategoriesLocalKeys[indexPath.item])
         if selectedCategoryInd == indexPath.item {
             cell.categoryView.backgroundColor = K.Colors.selectedCategoryBackgound
             cell.categoryLabel.textColor = K.Colors.selectedCategoryLabel

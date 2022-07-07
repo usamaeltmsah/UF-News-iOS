@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     
     private let searchController = UISearchController()
     
-    var newsModel = EverythingNews()
+    var newsModel = EverythingNewsModel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,9 @@ class HomeViewController: UIViewController {
     }
     
     func configureNewsModel() {
-        newsModel.domains = "bbc.co.uk,techcrunch.com,engadget.com"
-        newsModel.languages = "en"
+//        newsModel.domains = "bbc.co.uk,techcrunch.com,engadget.com, addustuor.com"
+        newsModel.q = "1"
+        newsModel.languages = K.deviceLanguage ?? "en"
         newsModel.pageSize = 20
         newsModel.page = 1
     }
@@ -131,6 +132,10 @@ class HomeViewController: UIViewController {
                     let articlesData = try JSONDecoder().decode(NewsApiResponse.self, from: response.data)
                     guard let articles = articlesData.articles else {
                         // Show Error Message
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                            self?.activityIndicatorView.stopAnimating()
+                            self?.loading.stopAnimating()
+                        }
                         return
                     }
                     self?.articles += articles
