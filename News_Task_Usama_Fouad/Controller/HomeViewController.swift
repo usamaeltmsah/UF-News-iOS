@@ -44,7 +44,6 @@ class HomeViewController: UIViewController {
         configureActivityIndicatorView()
         configureLoadingMoreDataActivityIndicatorView()
         configureNewsModel()
-        activityIndicatorView.startAnimating()
         loadNews()
         configureArticlesTV()
     }
@@ -65,7 +64,6 @@ class HomeViewController: UIViewController {
     }
     
     private func configureActivityIndicatorView() {
-        loadingView.isHidden = true
         activityIndicatorView = NVActivityIndicatorView(frame: newsView.frame, type: .lineScalePulseOutRapid, color: .gray, padding: 0)
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         newsView.addSubview(activityIndicatorView)
@@ -76,10 +74,13 @@ class HomeViewController: UIViewController {
             activityIndicatorView.centerXAnchor.constraint(equalTo: newsView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: newsView.centerYAnchor)
         ])
+        
+        activityIndicatorView.startAnimating()
     }
     
     func configureLoadingMoreDataActivityIndicatorView() {
-        loading = NVActivityIndicatorView(frame: newsView.frame, type: .ballSpinFadeLoader, color: .gray, padding: 0)
+        loadingView.isHidden = true
+        loading = NVActivityIndicatorView(frame: loadingView.frame, type: .ballSpinFadeLoader, color: .gray, padding: 0)
         loading.translatesAutoresizingMaskIntoConstraints = false
         loadingView.addSubview(loading)
 

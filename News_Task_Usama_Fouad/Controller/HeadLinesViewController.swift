@@ -16,29 +16,37 @@ class HeadLinesViewController: UIViewController {
     @IBOutlet weak var categoriesCV: UICollectionView!
     @IBOutlet weak var articlesTV: UITableView!
     
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var headlinesView: UIView!
     
     
     // Variables
     var activityIndicatorView: NVActivityIndicatorView!
+    var loading: NVActivityIndicatorView!
     var headlinesModel = HeadlinesModel()
     
-    private var articles: [Article]? {
+//    private var articles: [Article]?
+    
+    private var selectedCategoryInd = 0 {
+        didSet {
+            topHeadlines.removeAll()
+            headlinesModel.page = 1
+        }
+    }
+    private var categories = [String]()
+    
+    var topHeadlines = [Article]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.articlesTV.reloadData()
             }
         }
     }
-    
-    private var selectedCategoryInd = 0
-    private var categories = [String]()
-    
-    var topHeadlines: [Article]?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureActivityIndicatorView()
+        configureLoadingMoreDataActivityIndicatorView()
         configureHeadlinesModel()
         loadNews()
         loadNewsCategories()
@@ -71,6 +79,22 @@ class HeadLinesViewController: UIViewController {
             activityIndicatorView.centerXAnchor.constraint(equalTo: headlinesView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: headlinesView.centerYAnchor)
         ])
+        
+        activityIndicatorView.startAnimating()
+    }
+    
+    func configureLoadingMoreDataActivityIndicatorView() {
+        loadingView.isHidden = true
+        loading = NVActivityIndicatorView(frame: loadingView.frame, type: .ballSpinFadeLoader, color: .gray, padding: 0)
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.addSubview(loading)
+
+        NSLayoutConstraint.activate([
+            loading.widthAnchor.constraint(equalToConstant: 20),
+            loading.heightAnchor.constraint(equalToConstant: 20),
+            loading.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+            loading.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor)
+        ])
     }
     
     private func showHeadlineDetailsVC(for index: Int) {
@@ -78,7 +102,7 @@ class HeadLinesViewController: UIViewController {
 //        present(vc, animated: true)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = mainStoryboard.instantiateViewController(identifier: K.headlinesDetailsVCId) as? HeadlineDetailsViewController else { return }
-        vc.urlString = articles?[index].url
+        vc.urlString = topHeadlines[index].url
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -98,17 +122,22 @@ class HeadLinesViewController: UIViewController {
     }
     
     private func loadNews() {
-        activityIndicatorView.startAnimating()
         ApiSrvice.sharedArticleProvider.request(.getHeadlines(paramsModel: headlinesModel)) { [weak self] result in
             switch result {
             case .success(let response):
                 do {
                     let articlesData = try JSONDecoder().decode(NewsApiResponse.self, from: response.data)
                     
-                    self?.topHeadlines = articlesData.articles
-                    self?.articles = articlesData.articles
+                    guard let articles = articlesData.articles else {
+                        // Show Error Message
+                        return
+                    }
+                    
+                    self?.topHeadlines += articles
+//                    self?.articles += articlesData.articles
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
                         self?.activityIndicatorView.stopAnimating()
+                        self?.loading.stopAnimating()
                     }
                 } catch {
                     print("Some ERROR happened while parsing api data!")
@@ -117,6 +146,34 @@ class HeadLinesViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        // UITableView only moves in one direction, y axis
+        let currentOffset = articlesTV.contentOffset.y
+        let maximumOffset = articlesTV.contentSize.height - articlesTV.frame.size.height
+
+        // Change 10.0 to adjust the distance from bottom
+        if maximumOffset - currentOffset <= 20.0 {
+            self.loadMoreNews()
+        }
+        
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        UIView.transition(with: loadingView, duration: 0.4, options: .transitionCrossDissolve) { [weak self] in
+            self?.loadingView.isHidden = true
+        }
+    }
+    
+    func loadMoreNews() {
+        UIView.transition(with: loadingView, duration: 0.4, options: .transitionCrossDissolve) { [weak self] in
+            self?.loading.startAnimating()
+            self?.loadingView.isHidden = false
+        }
+        
+        headlinesModel.page += 1
+        loadNews()
     }
 
 }
@@ -132,13 +189,13 @@ extension HeadLinesViewController: UITableViewDelegate {
 
 extension HeadLinesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articles?.count ?? 0
+        return self.topHeadlines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = articlesTV.dequeueReusableCell(withIdentifier: K.headlinesTVCellReuseId, for: indexPath) as? HeadlinesTVCell else { return UITableViewCell() }
         
-        cell.configure(article: articles?[indexPath.row])
+        cell.configure(article: topHeadlines[indexPath.row])
             
         return cell
     }
