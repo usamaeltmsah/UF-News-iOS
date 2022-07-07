@@ -135,12 +135,9 @@
 		19044760287338090052BDF7 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				19DB71052873A39900847BBC /* ArticleTVCell.swift */,
-				19DB71062873A39900847BBC /* ArticleTVCell.xib */,
-				19E2320F28750315007FE049 /* ArticleDetailsTVCell.swift */,
-				19E2321028750315007FE049 /* ArticleDetailsTVCell.xib */,
-				195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */,
-				195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */,
+				195F37EB28765DAF00AF49AA /* ArticleTVCell */,
+				195F37EC28765DCB00AF49AA /* ArticleDetailsTVCell */,
+				195F37ED28765DDF00AF49AA /* HeadlinesTVCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -148,8 +145,7 @@
 		19044761287338150052BDF7 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				19DB71092873A3CB00847BBC /* CategoryCVCell.swift */,
-				19DB710A2873A3CB00847BBC /* CategoryCVCell.xib */,
+				195F37EE28765DF200AF49AA /* CategoryCVCell */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -177,6 +173,42 @@
 				191DA1862873C3AF0042FD28 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		195F37EB28765DAF00AF49AA /* ArticleTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				19DB71052873A39900847BBC /* ArticleTVCell.swift */,
+				19DB71062873A39900847BBC /* ArticleTVCell.xib */,
+			);
+			path = ArticleTVCell;
+			sourceTree = "<group>";
+		};
+		195F37EC28765DCB00AF49AA /* ArticleDetailsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				19E2320F28750315007FE049 /* ArticleDetailsTVCell.swift */,
+				19E2321028750315007FE049 /* ArticleDetailsTVCell.xib */,
+			);
+			path = ArticleDetailsTVCell;
+			sourceTree = "<group>";
+		};
+		195F37ED28765DDF00AF49AA /* HeadlinesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				195F37E0287591E300AF49AA /* HeadlinesTVCell.swift */,
+				195F37E1287591E300AF49AA /* HeadlinesTVCell.xib */,
+			);
+			path = HeadlinesTVCell;
+			sourceTree = "<group>";
+		};
+		195F37EE28765DF200AF49AA /* CategoryCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				19DB71092873A3CB00847BBC /* CategoryCVCell.swift */,
+				19DB710A2873A3CB00847BBC /* CategoryCVCell.xib */,
+			);
+			path = CategoryCVCell;
 			sourceTree = "<group>";
 		};
 		19B897442872E43D0083D64B = {
