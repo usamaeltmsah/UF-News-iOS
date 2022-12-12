@@ -10,12 +10,14 @@ import Moya
 
 enum ArticleService {
     case getEverythinNews(paramsModel: EverythingNewsModel)
-//    case getHeadlinesWithQuery(q: String)
-//    case getHeadlinesWithCategory(category: String)
     case getHeadlines(paramsModel: HeadlinesModel)
 }
 
 extension ArticleService: TargetType {
+    var sampleData: Data {
+        return Data()
+    }
+    
     var baseURL: URL {
         return URL(string: "https://newsapi.org/v2")!
     }
@@ -24,7 +26,6 @@ extension ArticleService: TargetType {
         switch self {
         case .getEverythinNews(_):
             return "/everything"
-//        case .getHeadlinesWithQuery(_), .getHeadlinesWithCategory(_):
         case .getHeadlines(_):
             return "/top-headlines"
         }
@@ -46,10 +47,6 @@ extension ArticleService: TargetType {
         case .getHeadlines(let paramsModel):
             let parameters = paramsModel.getParams()
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-//        case .getHeadlinesWithQuery(let q):
-//            return .requestParameters(parameters: ["q": q], encoding: URLEncoding.default)
-//        case .getHeadlinesWithCategory(let category):
-//            return .requestParameters(parameters: ["category": category], encoding: URLEncoding.default)
         }
     }
     

@@ -31,6 +31,6 @@ struct K {
         static let selectedCategoryLabel = UIColor.white
     }
     
-    static let newsCategoriesLocalKeys: [String.LocalizationValue] = ["news_cat_general", "news_cat_entertainment", "news_cat_technology", "news_cat_science", "news_cat_health", "news_cat_sports", "news_cat_business"]
+    static let newsCategoriesLocalKeys: [String] = ["news_cat_general", "news_cat_entertainment", "news_cat_technology", "news_cat_science", "news_cat_health", "news_cat_sports", "news_cat_business"]
     static var newsCategories = ["General", "🎮 Entertainment", "💻 Technology", "📚 Science", "⛑ Health", "🏓 Sports", "👷‍♂️ Business"]
 }

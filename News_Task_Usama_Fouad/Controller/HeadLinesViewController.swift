@@ -56,7 +56,8 @@ class HeadLinesViewController: UIViewController {
     
     func configureHeadlinesModel() {
         headlinesModel.category = K.newsCategories.first!
-        headlinesModel.country = K.localRegionCode ?? "eg"
+        headlinesModel.languages = K.deviceLanguage ?? "en"
+//        headlinesModel.country = K.localRegionCode ?? "eg"
         headlinesModel.pageSize = 20
         headlinesModel.page = 1
     }
@@ -98,10 +99,10 @@ class HeadLinesViewController: UIViewController {
     }
     
     private func showHeadlineDetailsVC(for index: Int) {
-//        let vc = SFSafariViewController(url: URL(string: (articles?[index].url)!)!)
+//        let vc = SFSafariViewController(url: URL(string: (topHeadlines?[index].url)!)!)
 //        present(vc, animated: true)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = mainStoryboard.instantiateViewController(identifier: K.headlinesDetailsVCId) as? HeadlineDetailsViewController else { return }
+        guard let vc = mainStoryboard.instantiateViewController(withIdentifier: K.headlinesDetailsVCId) as? HeadlineDetailsViewController else { return }
         vc.urlString = topHeadlines[index].url
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -233,7 +234,8 @@ extension HeadLinesViewController: UICollectionViewDataSource {
         guard let cell = categoriesCV.dequeueReusableCell(withReuseIdentifier: K.categoriesCVCellReuseId, for: indexPath) as? CategoryCVCell else { return UICollectionViewCell() }
         
         cell.categoryLabel.text = categories[indexPath.item]
-        cell.categoryLabel.text = String(localized: K.newsCategoriesLocalKeys[indexPath.item])
+        cell.categoryLabel.text = NSLocalizedString(K.newsCategoriesLocalKeys[indexPath.item], comment: "")
+//        String(localized: K.newsCategoriesLocalKeys[indexPath.item])
         if selectedCategoryInd == indexPath.item {
             cell.categoryView.backgroundColor = K.Colors.selectedCategoryBackgound
             cell.categoryLabel.textColor = K.Colors.selectedCategoryLabel

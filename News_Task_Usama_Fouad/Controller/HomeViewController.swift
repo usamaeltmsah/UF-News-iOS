@@ -156,7 +156,7 @@ class HomeViewController: UIViewController {
     
     private func showArticleDetailsVC(for index: Int) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = mainStoryboard.instantiateViewController(identifier: K.articleDetailsVCId) as? ArticleDetailsViewController else { return }
+        guard let vc = mainStoryboard.instantiateViewController(withIdentifier: K.articleDetailsVCId) as? ArticleDetailsViewController else { return }
         vc.article = currentArticles[index]
         self.navigationController?.pushViewController(vc, animated: true)
     }

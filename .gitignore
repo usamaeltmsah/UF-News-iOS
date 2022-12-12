@@ -24,6 +24,9 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.xcworkspace
+
+xcshareddata/
 
 ## Obj-C/Swift specific
 *.hmap
@@ -41,7 +44,6 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
-
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
@@ -49,6 +51,7 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 Pods/
+Podfile.lock
 
 # Carthage
 #
