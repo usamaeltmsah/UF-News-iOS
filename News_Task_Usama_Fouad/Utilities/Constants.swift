@@ -10,6 +10,9 @@ import UIKit
 
 
 struct K {
+    /*
+     Get your api token from: https://newsapi.org/account
+    */
     static let apiKey = {API_KEY}
     
     static var deviceLanguage: String?
